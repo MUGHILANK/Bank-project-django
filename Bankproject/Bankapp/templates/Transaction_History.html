@@ -1,0 +1,60 @@
+{% extends "home.html" %}
+{%block title%}SIB || Transaction History{%endblock%}
+
+{% block style %}
+<style>
+    body {
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .form-container {
+        max-width: 400px;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #deposit {
+        width: 10%;
+        height: 50px;
+        font-size: 16px;
+    }
+</style>
+{% endblock %}
+
+<body>
+{%block content%}
+<div class="container col-6 mt-4">
+    <table class="table table-bordered table-striped ">
+        <label class="col-12 text-primary">Transaction History</label>
+    
+        <tbody>
+            <tr>
+                <td class="text-light bg-dark w-50">DEPOSIT</td>
+                <td class="text-light bg-dark w-50">WITHDRAW</td>
+            </tr>
+             {% for i in values %}
+            <tr>
+                <td class="text-success">{{i.deposit_detials}}</td>
+                <td class="text-danger">{{i.credited_detials}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="mb-3">
+        <p class="text-success">{{message}}</p>
+    </div>
+</div>
+{%endblock%}
+</body>

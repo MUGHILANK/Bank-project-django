@@ -1,0 +1,58 @@
+{% extends 'home.html' %}
+
+{% block title %}SIB || Deposit{% endblock %}
+
+{% block style %}
+<style>
+    body {
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .form-container {
+        max-width: 400px;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #deposit{
+        width: 10%;
+        height: 50px;
+        font-size: 16px;
+    }
+</style>
+{% endblock %}
+
+<body>
+    {% block content %}
+    <div class="container col-4 mt-5">
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="deposit" class="form-label">Deposit</label>
+                    <input type="number" class="form-control" id="deposit" name="deposit" placeholder="Enter the amount to deposit" required>
+                </div>
+
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn btn-success">Deposit</button>
+                </div>
+            </form>
+            <div class="mb-3">
+                <p class="text-success">{{message}}</p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
